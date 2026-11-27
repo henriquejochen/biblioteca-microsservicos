@@ -1,0 +1,61 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "servico_leitores (porta 5001)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/servico_leitores/app.py",
+      "cwd": "${workspaceFolder}/servico_leitores",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "servico_livros (porta 5002)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/servico_livros/app.py",
+      "cwd": "${workspaceFolder}/servico_livros",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "servico_emprestimos (porta 5003)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/servico_emprestimos/app.py",
+      "cwd": "${workspaceFolder}/servico_emprestimos",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    {
+      "name": "servico_multas (porta 5004)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/servico_multas/app.py",
+      "cwd": "${workspaceFolder}/servico_multas",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Iniciar os 4 serviços",
+      "configurations": [
+        "servico_leitores (porta 5001)",
+        "servico_livros (porta 5002)",
+        "servico_emprestimos (porta 5003)",
+        "servico_multas (porta 5004)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

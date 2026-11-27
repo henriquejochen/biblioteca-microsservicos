@@ -1,0 +1,948 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Biblioteca - Microsserviços",
+    "collectionId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+    "dateExported": "2026-11-27T03:15:23.811Z",
+    "version": "1.4",
+    "folders": [
+        {
+            "_id": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "1 - Leitores (porta 5001)",
+            "containerId": "",
+            "created": "2026-11-27T02:40:56.134Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "2 - Livros (porta 5002)",
+            "containerId": "",
+            "created": "2026-11-27T02:40:56.135Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "fed5cca3-a842-4969-a6c0-27c6f33276fc",
+            "name": "3 - Empréstimos (porta 5003)",
+            "containerId": "",
+            "created": "2026-11-27T02:40:56.136Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "cdab29a4-402d-4ee8-a712-294af24100a6",
+            "name": "4 - Multas (porta 5004)",
+            "containerId": "",
+            "created": "2026-11-27T02:40:56.137Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "Integrações (rodar na ordem)",
+            "containerId": "",
+            "created": "2026-11-27T02:40:56.138Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "d9968ba6-b109-46ea-ba08-697dba4975b3",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Health",
+            "url": "http://127.0.0.1:5001/api/health",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2026-11-27T02:40:56.134Z",
+            "modified": "2026-11-27T02:40:56.134Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "2587dfc0-c801-4fa5-bc96-203cef9589e3",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Criar leitor",
+            "url": "http://127.0.0.1:5001/api/leitores",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2026-11-27T02:40:56.135Z",
+            "modified": "2026-11-27T02:40:56.135Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"nome\": \"Ana Costa\",",
+                    "  \"email\": \"ana@exemplo.com\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "d752ae3a-073a-42a1-8d77-9bc1990b1994",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Criar leitor (erro: sem email)",
+            "url": "http://127.0.0.1:5001/api/leitores",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2026-11-27T02:40:56.136Z",
+            "modified": "2026-11-27T02:40:56.136Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"nome\": \"Sem Email\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "11161b9e-ea04-4f0b-967a-4ac9e30b24b0",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Listar leitores",
+            "url": "http://127.0.0.1:5001/api/leitores",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2026-11-27T02:40:56.137Z",
+            "modified": "2026-11-27T02:40:56.137Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "3556c131-2838-44da-8349-f6390cadf98d",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Buscar leitor 1",
+            "url": "http://127.0.0.1:5001/api/leitores/1",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2026-11-27T02:40:56.138Z",
+            "modified": "2026-11-27T02:40:56.138Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "6539edeb-32a4-41c5-ba15-ee4b2a7d91a7",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Atualizar leitor 1",
+            "url": "http://127.0.0.1:5001/api/leitores/1",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2026-11-27T02:40:56.139Z",
+            "modified": "2026-11-27T02:40:56.139Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"nome\": \"Maria Silva\",",
+                    "  \"email\": \"maria.silva@exemplo.com\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "23a01707-e418-43ae-af19-6438205fa898",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Está ativo? (leitor 1)",
+            "url": "http://127.0.0.1:5001/api/leitores/1/ativo",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2026-11-27T02:40:56.140Z",
+            "modified": "2026-11-27T02:40:56.140Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "7ec5b7b4-02f8-48a7-9ef3-d4a4d4e9ee74",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "3d034207-7960-414d-8929-733ff022e4db",
+            "name": "Inativar leitor 2",
+            "url": "http://127.0.0.1:5001/api/leitores/2/inativar",
+            "method": "PATCH",
+            "sortNum": 80000,
+            "created": "2026-11-27T02:40:56.141Z",
+            "modified": "2026-11-27T02:40:56.141Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "f88c0d5e-ace7-4bc3-86f9-99c992ef3e0f",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Health",
+            "url": "http://127.0.0.1:5002/api/health",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2026-11-27T02:40:56.142Z",
+            "modified": "2026-11-27T02:40:56.142Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "3956426b-c7ea-478c-b523-f3f4867d1bcb",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Criar livro",
+            "url": "http://127.0.0.1:5002/api/livros",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2026-11-27T02:40:56.143Z",
+            "modified": "2026-11-27T02:40:56.143Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"titulo\": \"O Cortiço\",",
+                    "  \"autor\": \"Aluísio Azevedo\",",
+                    "  \"exemplares\": 3",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "48a65de3-8a2d-445c-a9d7-ad54e0e44dce",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Criar livro (erro: sem autor)",
+            "url": "http://127.0.0.1:5002/api/livros",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2026-11-27T02:40:56.144Z",
+            "modified": "2026-11-27T02:40:56.144Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"titulo\": \"Sem Autor\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "c51897d0-1f5e-454f-a342-da8a1c8f9acd",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Listar livros",
+            "url": "http://127.0.0.1:5002/api/livros",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2026-11-27T02:40:56.145Z",
+            "modified": "2026-11-27T02:40:56.145Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "d32e95c9-77db-425e-8e18-ec566369b372",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Buscar livro 1",
+            "url": "http://127.0.0.1:5002/api/livros/1",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2026-11-27T02:40:56.146Z",
+            "modified": "2026-11-27T02:40:56.146Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "80c7bceb-5ae0-442f-8c82-d07c9b703052",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Atualizar livro 1",
+            "url": "http://127.0.0.1:5002/api/livros/1",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2026-11-27T02:40:56.147Z",
+            "modified": "2026-11-27T02:40:56.147Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"titulo\": \"Dom Casmurro\",",
+                    "  \"autor\": \"Machado de Assis\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "df93e025-9bf6-46af-b944-28274a8e2137",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "efd82842-9dbf-4812-bb17-0874d188b5cf",
+            "name": "Inativar livro 3",
+            "url": "http://127.0.0.1:5002/api/livros/3/inativar",
+            "method": "PATCH",
+            "sortNum": 150000,
+            "created": "2026-11-27T02:40:56.148Z",
+            "modified": "2026-11-27T02:40:56.148Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "b6e8579d-c467-49fd-990e-f35d14cbc945",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "fed5cca3-a842-4969-a6c0-27c6f33276fc",
+            "name": "Health",
+            "url": "http://127.0.0.1:5003/api/health",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2026-11-27T02:40:56.149Z",
+            "modified": "2026-11-27T02:40:56.149Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "a83e8ea1-a7a4-4b69-971f-3891b0cf8598",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "fed5cca3-a842-4969-a6c0-27c6f33276fc",
+            "name": "Listar empréstimos",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2026-11-27T02:40:56.150Z",
+            "modified": "2026-11-27T02:40:56.150Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "86073ee4-1820-4af0-a610-7c1eaa79dff4",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "fed5cca3-a842-4969-a6c0-27c6f33276fc",
+            "name": "Buscar empréstimo 1",
+            "url": "http://127.0.0.1:5003/api/emprestimos/1",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2026-11-27T02:40:56.151Z",
+            "modified": "2026-11-27T02:40:56.151Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "962dc267-2929-4ad2-81bb-083bcb9b7589",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "cdab29a4-402d-4ee8-a712-294af24100a6",
+            "name": "Health",
+            "url": "http://127.0.0.1:5004/api/health",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2026-11-27T02:40:56.152Z",
+            "modified": "2026-11-27T02:40:56.152Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "2b95d6e2-e36d-4553-a65c-2d097fd973e0",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "cdab29a4-402d-4ee8-a712-294af24100a6",
+            "name": "Listar multas",
+            "url": "http://127.0.0.1:5004/api/multas",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2026-11-27T02:40:56.153Z",
+            "modified": "2026-11-27T02:40:56.153Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "9c62b08c-1eef-46dc-9e1a-ede4ad1df72a",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "cdab29a4-402d-4ee8-a712-294af24100a6",
+            "name": "Listar multas do leitor 1",
+            "url": "http://127.0.0.1:5004/api/multas?leitor_id=1",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2026-11-27T02:40:56.154Z",
+            "modified": "2026-11-27T02:40:56.154Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "leitor_id",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "f011f1ef-2c2a-43db-bf9a-28b33e3e084d",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "cdab29a4-402d-4ee8-a712-294af24100a6",
+            "name": "Buscar multa 1",
+            "url": "http://127.0.0.1:5004/api/multas/1",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2026-11-27T02:40:56.155Z",
+            "modified": "2026-11-27T02:40:56.155Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "c88db9cf-c697-47df-b10e-2cf3d1af1c1a",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "1. [BUSCA 1+2 e ALTERAÇÃO] Emprestar livro 1 ao leitor 1",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "POST",
+            "sortNum": 230000,
+            "created": "2026-11-27T02:40:56.156Z",
+            "modified": "2026-11-27T02:40:56.156Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"leitor_id\": 1,",
+                    "  \"livro_id\": 1",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "4df925f7-2685-45f1-9edb-f9b2ce7cb070",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "2. Conferir estoque do livro 1 (disponíveis caiu para 1)",
+            "url": "http://127.0.0.1:5002/api/livros/1",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2026-11-27T02:40:56.157Z",
+            "modified": "2026-11-27T02:40:56.157Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "cafb86df-6085-4055-bd51-b2d1cc78d867",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "3. [BUSCA] Detalhe do empréstimo (nome do leitor + título do livro)",
+            "url": "http://127.0.0.1:5003/api/emprestimos/1/detalhe",
+            "method": "GET",
+            "sortNum": 250000,
+            "created": "2026-11-27T02:40:56.158Z",
+            "modified": "2026-11-27T02:40:56.158Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "508fc5ff-424c-4a35-84ad-64a9b5133806",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "4. Erro: leitor inexistente",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "POST",
+            "sortNum": 260000,
+            "created": "2026-11-27T02:40:56.159Z",
+            "modified": "2026-11-27T02:40:56.159Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"leitor_id\": 99,",
+                    "  \"livro_id\": 1",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "4ebef772-f67e-422d-9a98-90a6e5182b2d",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "5. Erro: leitor inativo (leitor 2 foi inativado)",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "POST",
+            "sortNum": 270000,
+            "created": "2026-11-27T02:40:56.160Z",
+            "modified": "2026-11-27T02:40:56.160Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"leitor_id\": 2,",
+                    "  \"livro_id\": 1",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "c8250b5c-8c78-48c7-bdde-5a88156680a8",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "6. Erro: livro inexistente",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2026-11-27T02:40:56.161Z",
+            "modified": "2026-11-27T02:40:56.161Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"leitor_id\": 1,",
+                    "  \"livro_id\": 99",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "68811a6b-0f3e-4cc7-9361-c01fd1aed6b4",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "7. [ALTERAÇÃO] Devolver com atraso (gera multa e dívida)",
+            "url": "http://127.0.0.1:5003/api/emprestimos/1/devolver",
+            "method": "PATCH",
+            "sortNum": 290000,
+            "created": "2026-11-27T02:40:56.162Z",
+            "modified": "2026-11-27T02:40:56.162Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"data_devolucao\": \"2027-01-31\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "a2bab27b-118c-4991-8f74-cbb5959f77b6",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "8. Conferir multa criada",
+            "url": "http://127.0.0.1:5004/api/multas",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2026-11-27T02:40:56.163Z",
+            "modified": "2026-11-27T02:40:56.163Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "0efab664-9d3b-4bae-afbd-dde1294279dc",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "9. Conferir dívida do leitor 1",
+            "url": "http://127.0.0.1:5001/api/leitores/1",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2026-11-27T02:40:56.164Z",
+            "modified": "2026-11-27T02:40:56.164Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "e6e43522-8803-44fb-9fde-171908d04c93",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "10. Erro: leitor com multa não pode pegar livro",
+            "url": "http://127.0.0.1:5003/api/emprestimos",
+            "method": "POST",
+            "sortNum": 320000,
+            "created": "2026-11-27T02:40:56.165Z",
+            "modified": "2026-11-27T02:40:56.165Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"leitor_id\": 1,",
+                    "  \"livro_id\": 1",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                }
+            ]
+        },
+        {
+            "_id": "9abad01e-2d68-4ad7-8585-e20449480b25",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "11. [ALTERAÇÃO] Pagar multa 1 (zera a dívida)",
+            "url": "http://127.0.0.1:5004/api/multas/1/pagar",
+            "method": "PATCH",
+            "sortNum": 330000,
+            "created": "2026-11-27T02:40:56.166Z",
+            "modified": "2026-11-27T02:40:56.166Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "260ece9b-b564-45e0-9f07-d1e46a87b5f0",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "12. Conferir dívida zerada",
+            "url": "http://127.0.0.1:5001/api/leitores/1",
+            "method": "GET",
+            "sortNum": 340000,
+            "created": "2026-11-27T02:40:56.167Z",
+            "modified": "2026-11-27T02:40:56.167Z",
+            "headers": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "55968707-9ce1-44f0-a413-172b6f311bf8",
+            "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
+            "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
+            "name": "13. Multa direta (POST em Multas)",
+            "url": "http://127.0.0.1:5004/api/multas",
+            "method": "POST",
+            "sortNum": 350000,
+            "created": "2026-11-27T02:40:56.168Z",
+            "modified": "2026-11-27T02:40:56.168Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"emprestimo_id\": 1,",
+                    "  \"leitor_id\": 1,",
+                    "  \"dias_atraso\": 3",
+                    "}"
+                ],
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        }
+    ],
+    "ref": "P7fM-7Upl3WMIUwY31rV4sh5LlqyI84lt0po-CQAFH_x4ggk0JsOPJHP5yZNQ4-ZJpO3vTzawPRRruALXqA7sA"
+}
