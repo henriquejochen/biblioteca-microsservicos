@@ -79,6 +79,13 @@ Cada serviço foi publicado como Web Service com `Root Directory` = pasta do ser
 | `servico_emprestimos` | `LEITORES_URL`, `LIVROS_URL`, `MULTAS_URL`, `TIMEOUT_SEGUNDOS=60` |
 | `servico_multas` | `LEITORES_URL`, `TIMEOUT_SEGUNDOS=60` |
 
+| Serviço | URL publicada | Healthcheck |
+|---|---|---|
+| Leitores | https://biblioteca-leitores.onrender.com | https://biblioteca-leitores.onrender.com/api/health |
+| Livros | https://biblioteca-livros-qwd2.onrender.com | https://biblioteca-livros-qwd2.onrender.com/api/health |
+| Empréstimos | https://biblioteca-emprestimos-bjzr.onrender.com | https://biblioteca-emprestimos-bjzr.onrender.com/api/health |
+| Multas | https://biblioteca-multas-mxr6.onrender.com | https://biblioteca-multas-mxr6.onrender.com/api/health |
+
 ## Repositório no GitHub
 
 https://github.com/henriquejochen/biblioteca-microsservicos
