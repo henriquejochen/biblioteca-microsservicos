@@ -26,6 +26,7 @@ def dados_iniciais():
     if Leitor.query.count() == 0:
         db.session.add(Leitor(nome="Maria Silva", email="maria@exemplo.com"))
         db.session.add(Leitor(nome="João Souza", email="joao@exemplo.com"))
+        db.session.add(Leitor(nome="Carlos Pereira", email="carlos@exemplo.com", ativo=False))
         db.session.commit()
 
 

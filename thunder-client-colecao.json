@@ -692,7 +692,7 @@
             "_id": "4ebef772-f67e-422d-9a98-90a6e5182b2d",
             "colId": "0bfb178e-a416-4e1c-b43b-9787f10e2809",
             "containerId": "4d69a64f-07b8-465d-bf98-712e0757f64d",
-            "name": "5. Erro: leitor inativo (leitor 2 foi inativado)",
+            "name": "5. Erro: leitor inativo (leitor 3 está inativo)",
             "url": "http://127.0.0.1:5003/api/emprestimos",
             "method": "POST",
             "sortNum": 270000,
@@ -708,7 +708,7 @@
                 "type": "json",
                 "raw": [
                     "{",
-                    "  \"leitor_id\": 2,",
+                    "  \"leitor_id\": 3,",
                     "  \"livro_id\": 1",
                     "}"
                 ],

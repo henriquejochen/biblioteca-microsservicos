@@ -2,7 +2,7 @@
 
 Sistemas Distribuídos · Projeto: arquitetura em microsserviços (Python, Flask, SQLite) · Centro Universitário SATC
 
-**Equipe:**
+**Equipe:** Henrique Jochen, Thiago Devilla e Gabriel Camargo
 
 ## Documento de requisitos
 
@@ -64,7 +64,7 @@ As integrações 1, 2 e 3 atendem ao mínimo exigido (duas buscas e uma alteraç
 1. `py -m venv .venv` e `.venv\Scripts\Activate.ps1`
 2. `pip install -r requirements.txt`
 3. No VS Code: **Executar e Depurar > Iniciar os 4 serviços** (ou dois cliques em `iniciar_servicos.bat`)
-4. Importar `thunder-client-colecao.json` no Thunder Client e rodar a pasta **Integrações** na ordem (1 a 13). Cada serviço cria dados de exemplo ao iniciar (2 leitores e 2 livros).
+4. Importar `thunder-client-colecao.json` no Thunder Client e rodar a pasta **Integrações** na ordem (1 a 13). Cada serviço cria dados de exemplo ao iniciar (3 leitores — sendo o 3º inativo — e 2 livros).
 
 Cada serviço também responde em `GET /api/health`.
 
@@ -79,11 +79,6 @@ Cada serviço foi publicado como Web Service com `Root Directory` = pasta do ser
 | `servico_emprestimos` | `LEITORES_URL`, `LIVROS_URL`, `MULTAS_URL`, `TIMEOUT_SEGUNDOS=60` |
 | `servico_multas` | `LEITORES_URL`, `TIMEOUT_SEGUNDOS=60` |
 
-| Serviço | URL |
-|---|---|
-| Leitores | _(colar o link do Render)_ |
-| Livros | _(colar o link do Render)_ |
-| Empréstimos | _(colar o link do Render)_ |
-| Multas | _(colar o link do Render)_ |
+## Repositório no GitHub
 
-Repositório no GitHub: _(colar o link)_
+https://github.com/henriquejochen/biblioteca-microsservicos
